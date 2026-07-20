@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HERO Entertainment | Official</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --gold: #BF953F;
+            --gold-shine: linear-gradient(45deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+            --light-ui: #f9f9f9; 
+            --dark-body: #050505; 
+            --text-dark: #111111;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: var(--dark-body); color: white; scroll-behavior: smooth; overflow-x: hidden; }
+
+        /* --- LIGHT HEADER --- */
+        header.site-header {
+            background: #8F00FF;
+            padding: 10px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--gold);
+        }
+
+        .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo-circle {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: 2px solid var(--gold);
+            overflow: hidden;
+            background: #fff;
+        }
+        .logo-circle img { width: 100%; height: 100%; object-fit: cover; }
+        .company-name { font-weight: 900; color: white; letter-spacing: 1px; font-size: 1.1rem; }
+
+        /* Navigation Menu */
+        .nav-links { display: flex; list-style: none; gap: 20px; }
+        .nav-links a { color: var(--text-dark); text-decoration: none; font-weight: 700; font-size: 0.85rem; }
+        .nav-links a:hover { color: var(--gold); }
+
+        /* Mobile Menu Icon */
+        .menu-trigger {
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+            display: none;
+            border-radius:50%;
+        }
+
+        @media (max-width: 850px) {
+            .menu-trigger { display: block; }
+            .nav-links {
+                position: absolute;
+                right: 5%;
+                top: 65px;
+                background: var(--light-ui);
+                flex-direction: column;
+                width: 180px;
+                border: 2px solid var(--gold);
+                border-radius: 10px;
+                display: none;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            }
+            .nav-links.active { display: flex; }
+            .nav-links a { padding: 15px; border-bottom: 1px solid #eee; }
+        }
+
+        /* --- SECTIONS --- */
+        section { padding: 80px 5%; }
+        .hero-section {
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200');
+            background-size: cover;
+        }
+        .hero-section h1 { font-size: 3.5rem; background: var(--gold-shine); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        .about-section { display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap; }
+        .about-img { width: 280px; height: 280px; border-radius: 20px; border: 3px solid var(--gold); object-fit: cover; }
+        .about-text { max-width: 500px; text-align: center;}
+
+        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 40px; }
+        .service-card { background: #111; padding: 40px 20px; border-radius: 15px; border: 1px solid #222; text-align: center; transition: 0.3s; }
+        .service-card:hover { border-color: var(--gold); transform: translateY(-5px); }
+        .service-card i { font-size: 2.5rem; color: var(--gold); margin-bottom: 15px; }
+
+        .contact-form { background: #111; padding: 30px; border-radius: 15px; border: 1px solid #222; max-width: 700px; margin: auto; }
+        .contact-form input, .contact-form textarea {
+            width: 100%; padding: 15px; margin: 10px 0 20px; background: #000; border: 1px solid #333; color: white; border-radius: 5px; outline: none;
+        }
+        .submit-btn { width: 100%; padding: 18px; background: var(--gold-shine); border: none; font-weight: 900; cursor: pointer; border-radius: 5px; }
+
+        /* --- LIGHT FOOTER --- */
+        footer {
+            background: #8F00FF;
+            padding: 40px 5%;
+            text-align: center;
+            border-top: 3px solid var(--gold);
+            color: white;
+        }
+        
+        /* SOCIAL ICON LINKS STYLING */
+        .socials a {
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.3s;
+        }
+        .socials i {
+            font-size: 1.8rem;
+            margin: 0 15px;
+            color: white;
+        }
+        .socials a:hover i {
+            color: var(--gold);
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <a href="#home" class="brand">
+            <div class="logo-circle"><img src="  https://i.postimg.cc/VNMBf8dL/1766170247590.png" alt="Logo"></div>
+            <span class="company-name">HERO ENTERTAINMENT</span>
+        </a>
+        <ul class="nav-links" id="menu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#service">Service</a></li>
+            <li><a href="#contact">Contact us</a></li>
+        </ul>
+        <img src=" https://i.postimg.cc/QttrRh8c/Screenshot-2025-1219-211254.jpg" class="menu-trigger" onclick="toggleMenu()" alt="Menu">
+    </header>
+
+    <section class="hero-section" id="home">
+        <h1>INTERTAINMENT</h1>
+        <p style="letter-spacing: 4px; color: #ccc;">THE SPOTLIGHT IS YOURS</p>
+        <h3> I'm Zuber mustafa the founder of hero intertainment'</h3>
+    </section>
+
+    <section class="about-section" id="about">
+        <img src="https://i.postimg.cc/L83BnZfj/IMG-20251220-003025.jpg" alt="Hero" class="about-img">
+        <div class="about-text">
+            <h2 style="color: var(--gold); margin-bottom: 20px;">ABOUT US</h2>
+          
+            <p>Welcome to HERO Entertainment, We provide high-end production and digital branding services. Our goal is to make your content look premium and professional.
+                your premier destination for high-end visual production and cinematic digital content.
+​We specialize in bringing a "gold-standard" touch to the entertainment world through:
+​Cinematic YouTube Covers: Professional-grade music and visual covers that capture the spotlight.
+​Premium Digital Branding: High-shine visual identities for creators and artists.
+​Professional Video Production: Elite editing, event highlights, and creative storytelling.
+​At HERO Entertainment, we believe every creator deserves a professional stage. Our channel showcases the intersection of creativity and high-contrast production, ensuring every project we touch shines bright.
+                
+            </p>
+        </div>
+    </section>
+
+    <section class="service-section" id="service">
+        <h2 style="color: var(--gold); text-align: center;">Our Services</h2>
+        <div class="service-grid">
+            <div class="service-card">
+                <i class="fab fa-youtube"></i>
+                <h3>YouTube Production</h3>
+                <p>Professional covers and high-quality video editing.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-magic"></i>
+                <h3>Branding</h3>
+                <p>Shiny, gold-standard identities for creators.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-play"></i>
+                <h3>Live Events</h3>
+                <p>Full entertainment and production management.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+        <h2 style="color: var(--gold); text-align: center; margin-bottom: 30px;">Contact Us</h2>
+        <form class="contact-form">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea rows="4" placeholder="Your Message" required></textarea>
+            <button type="submit" class="submit-btn">SEND MESSAGE</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="socials">
+            <a href="https://www.youtube.com/@Herointertainment1" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.instagram.com/YOUR_PROFILE" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/share/1BcdrAFF57/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.tiktok.com/@m3multimedia1" target="_blank"><i class="fab fa-tiktok"></i></a>
+        </div>
+        <p style="margin-top: 15px; font-weight: 800;">&copy; 2025 HERO Entertainment</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('menu').classList.toggle('active');
+        }
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('menu').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
